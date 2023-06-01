@@ -1,0 +1,12 @@
+<div>
+  <table align="center">
+    <tr>
+      <td>
+        <%= form_with url: tagsearch_path, method: :get, local: true do |f| %>
+      </td>
+        <td><%= f.text_field :word %></td>
+        <td><%= f.submit 'タグ検索' %></td>
+        <% end %>
+    </tr>
+  </table>
+</div>

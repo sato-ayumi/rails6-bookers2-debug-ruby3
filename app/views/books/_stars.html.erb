@@ -1,0 +1,20 @@
+<div id="stars_<%= book.id %>"></div>
+<script>
+//初回読み込み、リロード、ページ切り替えで動く。
+$(document).on('turbolinks:load', function() {
+    // scriptファイルをどのidの部分に配置するかを指定
+    let elem = document.querySelector('#stars_<%= book.id %>');
+    if (elem == null) return;
+     
+    elem.innerHTML = "";
+    let opt = {  
+      //星画像の指定などのオプションをここに記述,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      readOnly: true,
+      half: false,
+      score: '<%= book.star %>'
+     };
+    raty(elem,opt);
+});
+</script>
